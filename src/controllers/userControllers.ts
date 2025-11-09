@@ -1,10 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { signUpSchema } from "../utils/schema/user";
+import { signInSchema } from "../utils/schema/user";
 import fs from "node:fs";
 import * as userService from "../services/userServices";
-import { success } from "zod";
-import { m } from "framer-motion";
-import { data } from "autoprefixer";
 
 export const signUp = async (
   req: Request,
@@ -41,4 +39,36 @@ export const signUp = async (
       data: newUser,
     });
   } catch (error) {}
+};
+
+export const signIn = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const parse = signInSchema.safeParse(req.body);
+
+    if (!parse.success) {
+      const errorMessage = parse.error.issues.map(
+        (err) => `${err.path} - ${err.message}`
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: "Validation errors",
+        detail: errorMessage,
+      });
+    }
+
+    const data = await userService.signIn(parse.data);
+
+    return res.json({
+      success: true,
+      message: "User signed in successfully",
+      data,
+    });
+  } catch (error) {
+    next(error);
+  }
 };

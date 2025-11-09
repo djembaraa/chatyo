@@ -17,7 +17,7 @@ const uploadPhoto = multer({
 });
 
 userRouter.post(
-  "auth/sign-up",
+  "/auth/sign-up",
   uploadPhoto.single("profilePicture"),
   userController.signUp
 );
