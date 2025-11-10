@@ -72,6 +72,9 @@ model Group {
 
   price Int
 
+  room_id String @unique
+  room Room @relation(fields: [room_id], references: [id])
+
   created_at DateTime @default(now())
 
   assets GroupAssets[]
@@ -105,6 +108,8 @@ model Room {
 
   member RoomMember[]
   messages RoomMessage[]
+
+  group Group?
 
   @@map("rooms")
 }
