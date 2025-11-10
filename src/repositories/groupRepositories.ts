@@ -2,7 +2,7 @@ import prisma from "../utils/prisma";
 import { GroupFreeValues } from "../utils/schema/group";
 import * as userRepositories from "./userRepositories";
 
-export const createGroup = async (
+export const createFreeGroup = async (
   data: GroupFreeValues,
   photo: string,
   userId: string
