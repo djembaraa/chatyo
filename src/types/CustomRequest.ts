@@ -1,3 +1,5 @@
+import { Request } from "express"; // <- WAJIB IMPORT INI
+
 import { RoleType } from "@prisma/client";
 
 type User = {
@@ -9,4 +11,8 @@ type User = {
 
 export interface CustomRequest extends Request {
   user?: User | null;
+  file?: Express.Multer.File;
+  files?:
+    | Express.Multer.File[]
+    | { [fieldname: string]: Express.Multer.File[] };
 }
