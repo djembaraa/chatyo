@@ -1,7 +1,7 @@
-import { fi } from "zod/locales";
 import { RoleType } from "../generated/prisma";
 import prisma from "../utils/prisma";
 import { SignUpValues } from "../utils/schema/user";
+import crypto from "node:crypto";
 
 export const isEmailExist = async (email: string) => {
   return await prisma.user.count({
@@ -43,6 +43,55 @@ export const findUserByEmail = async (email: string) => {
   return await prisma.user.findFirstOrThrow({
     where: {
       email: email,
+    },
+  });
+};
+
+export const createPasswordReset = async (email: string) => {
+  const user = await findUserByEmail(email);
+
+  const token = crypto.randomBytes(32).toString("hex");
+
+  return await prisma.passwordReset.create({
+    data: {
+      user_id: user.id,
+      token,
+    },
+  });
+};
+
+export const findPasswordResetByToken = async (token: string) => {
+  return await prisma.passwordReset.findFirst({
+    where: {
+      token: token,
+    },
+    include: {
+      user: {
+        select: {
+          email: true,
+        },
+      },
+    },
+  });
+};
+
+export const updatePassword = async (email: string, password: string) => {
+  const user = await findUserByEmail(email);
+
+  return await prisma.user.update({
+    where: {
+      id: user.id,
+    },
+    data: {
+      password: password,
+    },
+  });
+};
+
+export const deletePasswordResetById = async (id: string) => {
+  return await prisma.passwordReset.delete({
+    where: {
+      id,
     },
   });
 };

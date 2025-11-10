@@ -1,7 +1,13 @@
-import { SignInValues, SignUpValues } from "../utils/schema/user";
+import {
+  ResetPasswordValues,
+  SignInValues,
+  SignUpValues,
+} from "../utils/schema/user";
 import * as userRepositories from "../repositories/userRepositories";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { email } from "zod";
+import { mailtrap, sender } from "../utils/mailtrap";
 
 export const signUp = async (data: SignUpValues, file: Express.Multer.File) => {
   const isEmailExist = await userRepositories.isEmailExist(data.email);
@@ -54,4 +60,37 @@ export const signIn = async (data: SignInValues) => {
     photo: user.photo_url,
     token,
   };
+};
+
+export const getEmailReset = async (email: string) => {
+  const data = await userRepositories.createPasswordReset(email);
+
+  await mailtrap.testing.send({
+    from: sender,
+    to: [{ email }],
+    subject: "Reset your password",
+    text: `Use this token to reset your password: ${data.token}`,
+  });
+
+  return true;
+};
+
+export const updatePassword = async (
+  data: ResetPasswordValues,
+  token: string
+) => {
+  const tokenData = await userRepositories.findPasswordResetByToken(token);
+
+  if (!tokenData) {
+    throw new Error("Invalid or expired token");
+  }
+
+  await userRepositories.updatePassword(
+    tokenData.user.email,
+    bcrypt.hashSync(data.password, 12)
+  );
+
+  await userRepositories.deletePasswordResetById(tokenData.id);
+
+  return true;
 };

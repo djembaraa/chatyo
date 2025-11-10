@@ -1,8 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import { signUpSchema } from "../utils/schema/user";
+import { resetPasswordSchema, signUpSchema } from "../utils/schema/user";
 import { signInSchema } from "../utils/schema/user";
 import fs from "node:fs";
 import * as userService from "../services/userServices";
+import { sign } from "node:crypto";
+import { success } from "zod";
 
 export const signUp = async (
   req: Request,
@@ -67,6 +69,70 @@ export const signIn = async (
       success: true,
       message: "User signed in successfully",
       data,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getEmailReset = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const parse = signInSchema.pick({ email: true }).safeParse(req.body);
+
+    if (!parse.success) {
+      const errorMessage = parse.error.issues.map(
+        (err) => `${err.path} - ${err.message}`
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: "Validation errors",
+        detail: errorMessage,
+      });
+    }
+
+    await userService.getEmailReset(parse.data.email);
+
+    return res.json({
+      success: true,
+      message: "Password reset email sent successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updatePassword = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const parse = resetPasswordSchema.safeParse(req.body);
+
+    if (!parse.success) {
+      const errorMessage = parse.error.issues.map(
+        (err) => `${err.path} - ${err.message}`
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: "Validation errors",
+        detail: errorMessage,
+      });
+    }
+
+    const { tokenId } = req.params;
+
+    await userService.updatePassword(parse.data, tokenId);
+
+    return res.json({
+      success: true,
+      message: "Password updated successfully",
     });
   } catch (error) {
     next(error);
