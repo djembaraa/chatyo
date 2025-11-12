@@ -46,9 +46,9 @@ export const createPaidGroup = async (
       photo: photo,
       name: data.name,
       about: data.about,
-      price: Number.parseInt(data.price.toString()),
+      price: Number(data.price),
       benefit: data.benefits,
-      type: "FREE",
+      type: "PAID",
       room: {
         create: {
           created_by: userId,

@@ -6,7 +6,7 @@ export const groupFreeSchema = z.object({
 });
 
 export const groupPaidSchema = groupFreeSchema.extend({
-  price: z.number(),
+  price: z.string().transform((val) => Number(val)),
   benefits: z.array(z.string()).min(1),
 });
 

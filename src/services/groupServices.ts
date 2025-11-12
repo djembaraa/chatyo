@@ -23,4 +23,6 @@ export const createPaidGroup = async (
     userId,
     assets
   );
+
+  return group;
 };

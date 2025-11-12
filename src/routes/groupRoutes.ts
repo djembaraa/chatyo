@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { storageGroupPhoto } from "../utils/multer";
+import { storageGroupPaidPhoto, storageGroupPhoto } from "../utils/multer";
 import verifyToken from "../middleware/verifyToken";
 import * as groupController from "../controllers/groupController";
 
@@ -17,11 +17,33 @@ const uploadPhoto = multer({
   },
 });
 
+const uploadPaidPhoto = multer({
+  storage: storageGroupPaidPhoto,
+  // fileFilter(req, file, callback) {
+  //   if (file.fieldname === "assets") {
+  //     callback(null, true);
+  //     return;
+  //   }
+  //   if (file.mimetype.startsWith("image/")) {
+  //     callback(null, false);
+  //   }
+
+  //   callback(null, true);
+  // },
+});
+
 groupRouter.post(
   "/groups/free",
   verifyToken,
   uploadPhoto.single("photo"),
   groupController.createFreeGroup
+);
+
+groupRouter.post(
+  "/groups/paid",
+  verifyToken,
+  uploadPaidPhoto.fields([{ name: "photo", maxCount: 1 }, { name: "assets" }]),
+  groupController.createPaidGroup
 );
 
 export default groupRouter;
