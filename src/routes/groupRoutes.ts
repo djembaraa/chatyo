@@ -39,6 +39,13 @@ groupRouter.post(
   groupController.createFreeGroup
 );
 
+groupRouter.put(
+  "/groups/free/:groupId",
+  verifyToken,
+  uploadPhoto.single("photo"),
+  groupController.updateFreeGroup
+);
+
 groupRouter.post(
   "/groups/paid",
   verifyToken,

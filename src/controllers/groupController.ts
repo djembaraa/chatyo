@@ -75,7 +75,7 @@ export const updateFreeGroup = async (
     );
     return res.json({
       success: true,
-      message: "Group created successfully",
+      message: "Update group successfully",
       data: group,
     });
   } catch (error) {
