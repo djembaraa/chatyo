@@ -2,6 +2,7 @@ import { NextFunction, Response, Request } from "express";
 import { CustomRequest } from "../types/CustomRequest";
 import { groupFreeSchema, groupPaidSchema } from "../utils/schema/group";
 import * as groupService from "../services/groupServices";
+import { ca } from "zod/locales";
 
 export const getDiscoverGroups = async (
   req: CustomRequest,
@@ -15,6 +16,29 @@ export const getDiscoverGroups = async (
     return res.json({
       success: true,
       message: "Get discover groups successfully",
+      data,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getDiscoverPeople = async (
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { name } = req.query;
+
+    const data = await groupService.getDiscoverPeople(
+      name as string,
+      req?.user?.id
+    );
+
+    return res.json({
+      success: true,
+      message: "Get discover people successfully",
       data,
     });
   } catch (error) {
