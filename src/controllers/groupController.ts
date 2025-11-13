@@ -128,11 +128,67 @@ export const createPaidGroup = async (
 
     const assetsFilenames = assetsFiles.map((f) => f.filename);
 
-    const group = await groupService.createPaidGroup(
+    const group = await groupService.upsertPaidGroup(
       parse.data,
       photoFile.filename,
       req.user?.id ?? "",
       assetsFilenames
+    );
+
+    return res.json({
+      success: true,
+      message: "Group created successfully",
+      data: group,
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
+
+export const updatePaidGroup = async (
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { groupId } = req.params;
+    const parse = groupPaidSchema.safeParse(req.body);
+
+    if (!parse.success) {
+      const errorMessage = parse.error.issues.map(
+        (err) => `${err.path} - ${err.message}`
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: "Validation errors",
+        detail: errorMessage,
+      });
+    }
+
+    const files = req.files as {
+      photo?: Express.Multer.File[];
+      assets?: Express.Multer.File[];
+    };
+
+    // Validasi photo
+    const photoFile = files.photo?.[0];
+
+    // Validasi assets
+    const assetsFiles = files.assets;
+
+    const assetsFilenames = assetsFiles?.map((f) => f.filename);
+
+    const group = await groupService.upsertPaidGroup(
+      parse.data,
+      req.user?.id ?? "",
+      photoFile?.filename,
+      assetsFilenames,
+      groupId
     );
 
     return res.json({
