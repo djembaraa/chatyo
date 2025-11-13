@@ -10,8 +10,14 @@ export const findGroupById = async (id: string) => {
   });
 };
 
-export const getDiscoverGroups = async () => {
+export const getDiscoverGroups = async (name = "") => {
   return await prisma.group.findMany({
+    where: {
+      name: {
+        contains: name,
+        mode: "insensitive",
+      },
+    },
     select: {
       photo_url: true,
       id: true,

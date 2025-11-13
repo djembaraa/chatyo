@@ -9,7 +9,9 @@ export const getDiscoverGroups = async (
   next: NextFunction
 ) => {
   try {
-    const data = await groupService.getDiscoverGroups();
+    const { name } = req.query;
+
+    const data = await groupService.getDiscoverGroups((name as string) ?? "");
     return res.json({
       success: true,
       message: "Get discover groups successfully",
