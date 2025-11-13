@@ -3,6 +3,10 @@ import * as groupRepositories from "../repositories/groupRepositories";
 import fs from "node:fs";
 import path from "node:path";
 
+export const getDiscoverGroups = async () => {
+  return await groupRepositories.getDiscoverGroups();
+};
+
 export const upsertFreeGroup = async (
   data: GroupFreeValues,
   userId: string,
@@ -23,7 +27,12 @@ export const upsertFreeGroup = async (
     }
   }
 
-  const group = await groupRepositories.upsertFreeGroup(data, userId, photo);
+  const group = await groupRepositories.upsertFreeGroup(
+    data,
+    userId,
+    photo,
+    groupId
+  );
 
   return group;
 };
