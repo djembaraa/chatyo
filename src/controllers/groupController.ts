@@ -23,6 +23,23 @@ export const getDiscoverGroups = async (
   }
 };
 
+export const getOwnGroup = async (
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const data = await groupService.getMyOwnGroup(req.user?.id ?? "");
+    return res.json({
+      success: true,
+      message: "Get my own groups successfully",
+      data,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getDiscoverPeople = async (
   req: CustomRequest,
   res: Response,
@@ -68,6 +85,26 @@ export const findDetailGroup = async (
     next(error);
   }
 };
+
+// Opsi lain ketika error dilempar not found
+// export const getDetailGroup = async (req: CustomRequest, res: Response) => {
+//   try {
+//     const { id } = req.params;
+
+//     const data = await groupService.findDetailGroup(id, req.user.id);
+
+//     return res.json({
+//       success: true,
+//       message: "Get detail group successfully",
+//       data,
+//     });
+//   } catch (error) {
+//     return res.status(404).json({
+//       success: false,
+//       message: "Group not found",
+//     });
+//   }
+// };
 
 export const createFreeGroup = async (
   req: CustomRequest,

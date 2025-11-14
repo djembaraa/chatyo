@@ -154,6 +154,7 @@ export const upsertPaidGroup = async (
   return group;
 };
 
+// Cari Group berdasarkan dibuat atau gabung
 export const findDetailGroup = async (id: string, userId: string) => {
   return await prisma.group.findFirstOrThrow({
     where: {
@@ -195,6 +196,86 @@ export const findDetailGroup = async (id: string, userId: string) => {
             },
           },
         },
+      },
+    },
+  });
+};
+
+// Cari Group berdasarkan ID
+// export const findDetailGroup = async (id: string, userId: string) => {
+//   return await prisma.group.findFirstOrThrow({
+//     where: {
+//       id: id,   // hanya cek ID
+//     },
+//     select: {
+//       id: true,
+//       name: true,
+//       about: true,
+//       photo_url: true,
+//       type: true,
+//       assets: {
+//         select: {
+//           filename: true,
+//         },
+//       },
+//       room: {
+//         select: {
+//           member: {
+//             take: 1,
+//             where: {
+//               user_id: userId,  // user yang lihat group
+//             },
+//             select: {
+//               user: {
+//                 select: {
+//                   name: true,
+//                   photo_url: true,
+//                 },
+//               },
+//             },
+//           },
+//           _count: {
+//             select: {
+//               member: true,
+//             },
+//           },
+//         },
+//       },
+//     },
+//   });
+// };
+
+export const getMyOwnGroup = async (userId: string) => {
+  return await prisma.group.findMany({
+    where: {
+      room: {
+        created_by: userId,
+      },
+    },
+    select: {
+      id: true,
+      photo_url: true,
+      name: true,
+      type: true,
+      room: {
+        select: {
+          _count: {
+            select: {
+              member: true,
+            },
+          },
+          id: true,
+        },
+      },
+    },
+  });
+};
+
+export const getTotalMember = async (roomId: string[]) => {
+  return await prisma.roomMember.count({
+    where: {
+      room_id: {
+        in: roomId,
       },
     },
   });

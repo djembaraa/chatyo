@@ -2,6 +2,7 @@ import { GroupFreeValues, GroupPaidValues } from "../utils/schema/group";
 import * as groupRepositories from "../repositories/groupRepositories";
 import fs from "node:fs";
 import path from "node:path";
+import { list } from "postcss";
 
 export const getDiscoverGroups = async (name?: string) => {
   return await groupRepositories.getDiscoverGroups(name);
@@ -74,4 +75,35 @@ export const upsertPaidGroup = async (
   );
 
   return group;
+};
+
+export const getMyOwnGroup = async (userId: string) => {
+  const groups = await groupRepositories.getMyOwnGroup(userId);
+
+  const paidGroup = groups.filter((item) => {
+    return item.type === "PAID";
+  }).length;
+
+  const freeGroup = groups.filter((item) => {
+    return item.type === "FREE";
+  }).length;
+
+  const TotalMember = await groupRepositories.getTotalMember(
+    groups.map((item) => item.room.id)
+  );
+
+  return {
+    list: groups.map((item) => {
+      return {
+        id: item.id,
+        photo_url: item.photo_url,
+        name: item.name,
+        type: item.type,
+        total_member: item.room._count.member,
+      };
+    }),
+    paid_group: paidGroup,
+    free_group: freeGroup,
+    total_member: TotalMember,
+  };
 };
