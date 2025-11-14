@@ -10,5 +10,10 @@ export const groupPaidSchema = groupFreeSchema.extend({
   benefits: z.array(z.string()).min(1),
 });
 
+export const joinFreeGroup = z.object({
+  group_id: z.string(),
+});
+
 export type GroupFreeValues = z.infer<typeof groupFreeSchema>;
 export type GroupPaidValues = z.infer<typeof groupPaidSchema>;
+export type joinFreeGroup = z.infer<typeof joinFreeGroup>;

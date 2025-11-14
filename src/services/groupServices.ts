@@ -107,3 +107,21 @@ export const getMyOwnGroup = async (userId: string) => {
     total_member: TotalMember,
   };
 };
+
+export const addMemberFreeGroup = async (groupId: string, userId: string) => {
+  const checkMember = await groupRepositories.getMemberById(userId);
+
+  if (checkMember) {
+    throw new Error("You already in this group");
+  }
+
+  const group = await groupRepositories.findGroupById(groupId);
+
+  if (group.type === "PAID") {
+    throw new Error("This group is paid");
+  }
+
+  await groupRepositories.addMemberToGroup(group.room_id, userId);
+
+  return true;
+};

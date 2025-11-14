@@ -1,8 +1,13 @@
 import { NextFunction, Response, Request } from "express";
 import { CustomRequest } from "../types/CustomRequest";
-import { groupFreeSchema, groupPaidSchema } from "../utils/schema/group";
+import {
+  groupFreeSchema,
+  groupPaidSchema,
+  joinFreeGroup,
+} from "../utils/schema/group";
 import * as groupService from "../services/groupServices";
 import { ca } from "zod/locales";
+import { join } from "node:path";
 
 export const getDiscoverGroups = async (
   req: CustomRequest,
@@ -305,5 +310,36 @@ export const updatePaidGroup = async (
       success: false,
       message: "Internal Server Error",
     });
+  }
+};
+
+export const createMemberFreeGroup = async (
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const parse = joinFreeGroup.safeParse(req.body);
+
+    if (!parse.success) {
+      const errorMessage = parse.error.issues.map(
+        (err) => `${err.path} - ${err.message}`
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: "Validation errors",
+        detail: errorMessage,
+      });
+    }
+
+    const data = await groupService.addMemberFreeGroup(
+      parse.data.group_id,
+      req?.user?.id ?? ""
+    );
+
+    return res.json;
+  } catch (error) {
+    next(error);
   }
 };

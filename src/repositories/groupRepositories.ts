@@ -1,3 +1,4 @@
+import { group } from "node:console";
 import prisma from "../utils/prisma";
 import { GroupFreeValues, GroupPaidValues } from "../utils/schema/group";
 import * as userRepositories from "./userRepositories";
@@ -277,6 +278,26 @@ export const getTotalMember = async (roomId: string[]) => {
       room_id: {
         in: roomId,
       },
+    },
+  });
+};
+
+export const getMemberById = async (userId: string) => {
+  return await prisma.roomMember.findFirst({
+    where: {
+      user_id: userId,
+    },
+  });
+};
+
+export const addMemberToGroup = async (roomId: string, userId: string) => {
+  const role = await userRepositories.findRole("MEMBER");
+
+  return await prisma.roomMember.create({
+    data: {
+      room_id: roomId,
+      user_id: userId,
+      role_id: role.id,
     },
   });
 };
