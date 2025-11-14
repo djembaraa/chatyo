@@ -109,7 +109,7 @@ export const getMyOwnGroup = async (userId: string) => {
 };
 
 export const addMemberFreeGroup = async (groupId: string, userId: string) => {
-  const checkMember = await groupRepositories.getMemberById(userId);
+  const checkMember = await groupRepositories.getMemberById(userId, groupId);
 
   if (checkMember) {
     throw new Error("You already in this group");
