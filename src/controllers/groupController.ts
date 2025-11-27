@@ -6,8 +6,7 @@ import {
   joinFreeGroup,
 } from "../utils/schema/group";
 import * as groupService from "../services/groupServices";
-import { ca } from "zod/locales";
-import { join } from "node:path";
+import { success } from "zod";
 
 export const getDiscoverGroups = async (
   req: CustomRequest,
@@ -338,7 +337,11 @@ export const createMemberFreeGroup = async (
       req?.user?.id ?? ""
     );
 
-    return res.json;
+    return res.json({
+      success: true,
+      message: "Join free group successfully",
+      data,
+    });
   } catch (error) {
     next(error);
   }
