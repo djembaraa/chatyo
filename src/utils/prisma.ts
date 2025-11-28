@@ -1,12 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient().$extends({
+const baseClient = new PrismaClient();
+
+const prisma = baseClient.$extends({
   result: {
     user: {
       photo_url: {
-        needs: {
-          photo: true,
-        },
+        needs: { photo: true },
         compute(data: { photo: string | null }) {
           if (data.photo) {
             return `${process.env.URL_ASSET_PHOTO}${data.photo}`;
@@ -17,13 +17,12 @@ const prisma = new PrismaClient().$extends({
     },
     group: {
       photo_url: {
-        needs: {
-          photo: true,
-        },
-        compute(data) {
+        needs: { photo: true },
+        compute(data: { photo: string | null }) {
           if (data.photo) {
             return `${process.env.URL_ASSET_GROUP_PHOTO}${data.photo}`;
           }
+          return null;
         },
       },
     },

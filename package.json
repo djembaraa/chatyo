@@ -11,7 +11,7 @@
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
-		"@prisma/client": "^7.0.1",
+		"@prisma/client": "^5.22.0",
 		"@types/multer": "^2.0.0",
 		"bcrypt": "^6.0.0",
 		"body-parser": "^2.2.0",
@@ -21,6 +21,7 @@
 		"jsonwebtoken": "^9.0.2",
 		"mailtrap": "^3.4.0",
 		"multer": "^2.0.2",
+		"prisma": "^5.22.0",
 		"zod": "^4.1.12"
 	},
 	"devDependencies": {
@@ -31,7 +32,6 @@
 		"@types/node": "^22.5.1",
 		"concurrently": "^9.0.1",
 		"nodemon": "^3.1.7",
-		"prisma": "^7.0.1",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.5.4"
 	},

@@ -81,7 +81,9 @@ export const updateTransaction = async (order_id: string, status: string) => {
         transaction.user_id
       );
 
-      return transaction.id;
+      return {
+        transaction_id: transaction.id,
+      };
     }
     case "deny":
     case "expire":

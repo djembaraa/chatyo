@@ -37,3 +37,23 @@ export const createTransactions = async (
     next(error);
   }
 };
+
+export const updateTransactions = async (
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const data = await transactionService.updateTransaction(
+      req.body.order_id,
+      req.body.transaction_status
+    );
+    return res.json({
+      success: true,
+      message: "Transaction updated successfully",
+      data,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
