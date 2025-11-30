@@ -7,6 +7,7 @@ import { error } from "console";
 import errorHandle from "./middleware/errorHandle";
 import groupRouter from "./routes/groupRoutes";
 import transactionsRoutes from "./routes/transactionsRoutes";
+import chatRouter from "./routes/chatRoutes";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api", userRoutes);
 app.use("/api", groupRouter);
 app.use("/api", transactionsRoutes);
+app.use("/api", chatRouter);
 
 app.use(errorHandle);
 
