@@ -20,7 +20,7 @@ const prisma = baseClient.$extends({
         needs: { photo: true },
         compute(data: { photo: string | null }) {
           if (data.photo) {
-            return `${process.env.URL_ASSET_GROUP_PHOTO}${data.photo}`;
+            return `${process.env.URL_ASSET_GROUP_PHOTO}/${data.photo}`;
           }
           return null;
         },
