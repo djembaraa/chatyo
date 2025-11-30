@@ -39,3 +39,21 @@ export const createRoomPersonal = async (
     next(error);
   }
 };
+
+export const getRooms = async (
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const data = await chatService.getRecentRooms(req?.user?.id ?? "");
+
+    return res.json({
+      success: true,
+      message: "Successfully retrieved chat rooms",
+      data,
+    });
+  } catch (error) {
+    next(error);
+  }
+};

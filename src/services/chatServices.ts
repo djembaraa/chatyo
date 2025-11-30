@@ -6,3 +6,7 @@ export const createRoomPersonal = async (
 ) => {
   return await chatRepo.createRoomPersonal(sender_id, receiver_id);
 };
+
+export const getRecentRooms = async (userId: string) => {
+  return await chatRepo.getRooms(userId);
+};
