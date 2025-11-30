@@ -1,4 +1,5 @@
 import prisma from "../utils/prisma";
+import { CreateMessageValues } from "../utils/schema/chat";
 import * as userRepository from "./userRepositories";
 
 export const createRoomPersonal = async (
@@ -91,6 +92,84 @@ export const getRooms = async (userId: string) => {
     },
     orderBy: {
       created_at: "desc",
+    },
+  });
+};
+
+export const getRoomsMessages = async (roomId: string) => {
+  return await prisma.room.findFirst({
+    where: {
+      id: roomId,
+    },
+    select: {
+      id: true,
+      is_group: true,
+      messages: {
+        select: {
+          content: true,
+          type: true,
+          user: {
+            select: {
+              id: true,
+              name: true,
+              photo_url: true,
+            },
+          },
+          created_at: true,
+        },
+        orderBy: {
+          created_at: "asc",
+        },
+      },
+      group: {
+        select: {
+          name: true,
+          photo_url: true,
+        },
+      },
+      member: {
+        select: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              photo_url: true,
+            },
+          },
+        },
+      },
+    },
+  });
+};
+
+export const findRoomsById = async (room_id: string) => {
+  return await prisma.room.findFirstOrThrow({
+    where: {
+      id: room_id,
+    },
+  });
+};
+
+export const findMember = async (userId: string, roomId: string) => {
+  return await prisma.roomMember.findFirst({
+    where: {
+      room_id: roomId,
+      user_id: userId,
+    },
+  });
+};
+
+export const createMessage = async (
+  data: CreateMessageValues,
+  userId: string,
+  file: Express.Multer.File | undefined
+) => {
+  return await prisma.roomMessage.create({
+    data: {
+      user_id: userId, //Pakai user_id karena di schema ga ada sender_id tidak seperti di course
+      room_id: data.room_id,
+      content: file ? file.filename : data.message,
+      type: file ? "IMAGE" : "TEXT",
     },
   });
 };

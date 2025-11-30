@@ -9,7 +9,7 @@ const prisma = baseClient.$extends({
         needs: { photo: true },
         compute(data: { photo: string | null }) {
           if (data.photo) {
-            return `${process.env.URL_ASSET_PHOTO}${data.photo}`;
+            return `${process.env.URL_ASSET_PHOTO}/${data.photo}`;
           }
           return null;
         },
@@ -23,6 +23,21 @@ const prisma = baseClient.$extends({
             return `${process.env.URL_ASSET_GROUP_PHOTO}${data.photo}`;
           }
           return null;
+        },
+      },
+    },
+    roomMessage: {
+      content_url: {
+        needs: {
+          content: true,
+          type: true,
+        },
+        compute(data) {
+          if (data.type === "IMAGE") {
+            return `${process.env.URL_ASSET_ATTACH}/${data.content}`;
+          }
+
+          return data.content;
         },
       },
     },
