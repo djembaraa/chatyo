@@ -1,3 +1,4 @@
+import { u } from "framer-motion/client";
 import * as groupRepositories from "../repositories/groupRepositories";
 import * as transactionRepositories from "../repositories/transactionRepositories";
 import * as userRepositories from "../repositories/userRepositories";
@@ -98,4 +99,32 @@ export const updateTransaction = async (order_id: string, status: string) => {
     default:
       return {};
   }
+};
+
+export const getRevenueStat = async (user_id: string) => {
+  const transaction = await transactionRepositories.getMyTransactions(user_id);
+  const payouts = await transactionRepositories.getMyPayouts(user_id);
+  const group = await groupRepositories.getMyOwnGroup(user_id);
+
+  const totalRevenue = transaction.reduce((acc, curr) => {
+    if (curr.type === "SUCCESS") {
+      return acc + curr.price;
+    }
+
+    return acc;
+  }, 0);
+
+  const totalPayouts = payouts.reduce((acc, curr) => acc + curr.amount, 0);
+
+  const balance = totalRevenue - totalPayouts;
+
+  const totalVipGroups = group.filter((group) => group.type === "PAID").length;
+
+  const totalVipMembers = group.reduce((acc, curr) => {
+    if (curr.type === "PAID") {
+      return acc + (curr?.room?._count?.member ?? 0);
+    }
+
+    return acc;
+  }, 0);
 };
