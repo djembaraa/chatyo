@@ -6,11 +6,31 @@ Repositori ini adalah project **Chatyo**, aplikasi chatting modern berbasis grup
 
 Di project ini kamu akan membangun aplikasi chatting **end-to-end**:
 
-- Backend API dengan Express + Prisma + PostgreSQL
-- Frontend SPA dengan React + Vite
-- Real-time chat menggunakan Pusher
-- Integrasi pembayaran menggunakan Midtrans
-- Fitur revenue & withdraw untuk pemilik grup
+- Backend API dengan **Express + Prisma + PostgreSQL**
+- Frontend SPA dengan **React + Vite**
+- **Real-time chat** menggunakan **Pusher**
+- Integrasi pembayaran menggunakan **Midtrans**
+- Fitur **revenue & withdraw** untuk pemilik grup
+
+---
+
+## 📚 Daftar Isi
+
+- [Fitur Utama](#-fitur-utama)
+- [Tech Stack](#-tech-stack)
+  - [Frontend – `chatyo`](#frontend--chatyo)
+  - [Backend – `bwa-backend-ticket`](#backend--bwa-backend-ticket)
+- [Struktur Project](#-struktur-project)
+- [Prasyarat](#-prasyarat)
+- [Setup Environment Variable](#-setup-environment-variable)
+  - [Backend – `backend/.env`](#backend--backendenv)
+  - [Frontend – `frontend/.env`](#frontend--frontendenv)
+- [Menjalankan Project](#-menjalankan-project)
+  - [Menjalankan Backend](#1-menjalankan-backend)
+  - [Menjalankan Frontend](#2-menjalankan-frontend)
+- [Breakdown Materi Kelas](#-breakdown-materi-kelas-ringkasan)
+- [Tujuan Belajar](#-tujuan-belajar)
+- [License](#-license)
 
 ---
 
@@ -19,7 +39,7 @@ Di project ini kamu akan membangun aplikasi chatting **end-to-end**:
 - 🔐 **Authentication**
 
   - Sign Up, Sign In, Forgot Password / Reset Password
-  - JWT-based auth
+  - JWT-based authentication
 
 - 👥 **Manajemen Grup**
 
@@ -58,13 +78,11 @@ Di project ini kamu akan membangun aplikasi chatting **end-to-end**:
 - **React Router**
 - **@tanstack/react-query** – data fetching & caching
 - **Axios** – HTTP client
-- **React Hook Form** + **Zod** – form dan validasi
+- **React Hook Form** + **Zod** – form & validasi
 - **Tailwind CSS** – styling
 - **React Chart (Chart.js)** – visualisasi data (revenue, aktivitas user)
 
-Cuplikan `package.json`:
-
-```json
+````json
 {
   "name": "chatyo",
   "private": true,
@@ -87,111 +105,45 @@ Cuplikan `package.json`:
     "zod": "^4.1.13"
   }
 }
-```
+## ⚙️ Prasyarat
 
-Backend – bwa-backend-ticket
+Sebelum menjalankan project, pastikan kamu sudah menyiapkan:
 
-Express.js
+- **Node.js** versi **18 atau lebih baru**
+- Salah satu package manager: **npm / pnpm / yarn**
+- **PostgreSQL** terinstal dan dalam keadaan berjalan (running)
+- Memiliki akun untuk layanan berikut:
+  - **Midtrans** (payment gateway)
+  - **Pusher** (real-time event / websocket)
+  - **Mailtrap** (opsional, untuk testing email seperti reset password)
 
-Prisma + PostgreSQL
+---
 
-JWT (jsonwebtoken) – auth
+## 🔑 Setup Environment Variable
 
-bcrypt – hash password
+### 1. Backend – `backend/.env`
 
-Multer – upload file
+Buat file `.env` di folder `backend/` dan isi dengan konfigurasi environment yang diperlukan (lihat contoh pada bagian *Konfigurasi Environment* di atas).
 
-Pusher – real-time messaging
+# Konfigurasi Environment Project Chatyo
 
-Mailtrap – testing email (forgot password)
+Repository ini menggunakan beberapa variabel environment untuk mengatur server, database, autentikasi, email, real-time event, dan pembayaran.
+Semua konfigurasi didefinisikan di dalam file `.env`.
 
-Zod – validasi input
+## Contoh File `.env`
 
-TypeScript
-
-Cuplikan package.json:
-{
-"name": "bwa-backend-ticket",
-"version": "1.0.0",
-"main": "dist/index.js",
-"scripts": {
-"build": "npx tsc",
-"start": "node dist/index.js",
-"dev": "nodemon src/index.ts"
-},
-"dependencies": {
-"@prisma/client": "^5.22.0",
-"bcrypt": "^6.0.0",
-"body-parser": "^2.2.0",
-"cors": "^2.8.5",
-"dotenv": "^16.4.5",
-"express": "^4.19.2",
-"jsonwebtoken": "^9.0.2",
-"mailtrap": "^3.4.0",
-"multer": "^2.0.2",
-"prisma": "^5.22.0",
-"pusher": "^5.2.0",
-"zod": "^4.1.12"
-}
-}
-
-📁 Struktur Project (Saran)
-
-Jika frontend & backend disatukan dalam satu repo, struktur yang disarankan:
-
-.
-├── backend/ # bwa-backend-ticket (Express + Prisma)
-│ ├── src/
-│ ├── prisma/
-│ ├── package.json
-│ └── ...
-└── frontend/ # chatyo (React + Vite)
-├── src/
-├── index.html
-├── package.json
-└── ...
-
-Kalau kamu pisah ke dua repo, cukup sesuaikan path frontend & backend saat menjalankan.
-
-⚙️ Prasyarat
-
-Sebelum mulai:
-
-Node.js (disarankan v18+)
-
-npm / pnpm / yarn
-
-PostgreSQL terinstall & berjalan
-
-Akun:
-
-Midtrans
-
-Pusher
-
-Mailtrap
-(optional, untuk testing email reset password)
-
-🔑 Setup Environment Variable
-Backend (backend/.env)
-
-Contoh:
-
+```env
 # Server
-
 PORT=5000
 
 # Database (PostgreSQL)
-
 DATABASE_URL="postgresql://user:password@localhost:5432/chatyo_db?schema=public"
 
 # JWT
-
 JWT_SECRET="ganti-dengan-secret-yang-kuat"
 JWT_EXPIRES_IN="7d"
 
 # Email (Mailtrap)
-
 MAILTRAP_HOST="sandbox.smtp.mailtrap.io"
 MAILTRAP_PORT=2525
 MAILTRAP_USER="your-mailtrap-user"
@@ -199,182 +151,229 @@ MAILTRAP_PASS="your-mailtrap-pass"
 MAIL_FROM="no-reply@chatyo.app"
 
 # Pusher
-
 PUSHER_APP_ID="your-pusher-app-id"
 PUSHER_KEY="your-pusher-key"
 PUSHER_SECRET="your-pusher-secret"
 PUSHER_CLUSTER="ap1"
 
 # Midtrans
-
 MIDTRANS_SERVER_KEY="your-midtrans-server-key"
 MIDTRANS_CLIENT_KEY="your-midtrans-client-key"
 MIDTRANS_IS_PRODUCTION=false
 
-Sesuaikan nama variabel dengan file konfigurasi di folder src/ jika berbeda.
+### 📝 Catatan Penting
 
-Frontend (frontend/.env)
+- Sesuaikan nilai `DATABASE_URL` dengan **user**, **password**, dan **nama database lokal** yang kamu gunakan di PostgreSQL.
+- Pastikan **nama setiap environment variable** sama persis dengan yang dipanggil di file konfigurasi pada folder `src/`
+  (typo nama variabel bisa bikin aplikasi gagal jalan).
 
-Contoh:
 
-VITE_API_BASE_URL="http://localhost:5000/api"
+### 2. Frontend – `frontend/.env`
+
+Buat file `.env` di folder `frontend/` dengan isi contoh berikut:
+
+```env
+VITE_API_BASE_URL="http://localhost:(sesuaikan dengan portmu)/api"
 VITE_PUSHER_KEY="your-pusher-key"
 VITE_PUSHER_CLUSTER="ap1"
 VITE_MIDTRANS_CLIENT_KEY="your-midtrans-client-key"
 
-🛠️ Menjalankan Backend
-cd backend
 
-# Install dependencies
+## 🛠️ Menjalankan Project
 
+### 3. Backend
+
+Masuk ke folder backend:
+
+```bash
+🔹 Masuk ke Folder Backend
+cd backend-chatyo
+
+🔹 Install dependencies
 npm install
 
-# Setup Prisma & database
-
+🔹 Setup Prisma & Database (migrasi schema)
 npx prisma migrate dev
 
-# (opsional) seed data awal (role, dll)
-
+🔹 (Opsional) Seed data awal (role, dll)
 npx prisma db seed
 
-# Development
-
+🔹 Jalankan dalam mode development (dengan nodemon)
 npm run dev
 
-# Production build
-
+🔹 Jalankan untuk production
 npm run build
 npm start
 
-Secara default backend akan berjalan di http://localhost:5000.
 
-🖥️ Menjalankan Frontend
+Secara default, backend akan berjalan di:
+
+➡️ http://localhost:(sesuaikan dengan portmu)
+
+### 4. Frontend
+
+```bash
+🔹 Masuk ke Folder Frontend
 cd frontend
 
-# Install dependencies
-
+🔹 Install dependencies
 npm install
 
-# Development
-
+🔹 Jalankan dalam mode development
 npm run dev
 
-# Production build
-
+🔹 Build untuk production
 npm run build
+
+🔹 Preview production build secara lokal
 npm run preview
 
-Default Vite akan jalan di http://localhost:5173 (atau port lain jika sudah terpakai).
 
-📚 Breakdown Materi Kelas (Ringkasan)
+Secara default, Vite akan berjalan di:
 
-Struktur lesson di kelas ini kurang lebih mengikuti alur berikut:
+➡️ http://localhost:5173
+(atau port lain jika port default sudah terpakai).
 
-Setup Backend
 
-Install DB & tools
+## 📚 Fitur & Modul
 
-Desain ERD
+### 1. Backend – Authentication
 
-Setup Express & Prisma
+- Seed **roles** awal: `user`, `creator`, `admin`, dll.
+- **API Sign Up**
+  - Mendukung `multipart/form-data`
+  - Termasuk upload avatar user
+- **API Sign In**
+- **Forgot Password**
+  - Mengirim reset link via email (menggunakan Mailtrap untuk testing)
+  - Update password menggunakan token reset yang valid
 
-Backend – Authentication
+---
 
-Seed roles
+### 2. Backend – Group & Chat
 
-API Sign Up (multi part)
+#### 🧩 CRUD Group
+- Membuat dan mengubah group
+- Upload asset group:
+  - Cover
+  - Avatar
+  - dan aset lain yang dibutuhkan
 
-API Sign In
+#### 🔍 Discover
+- Discover group
+- Discover people (user lain)
 
-Forgot Password (get reset link, update password)
+#### 👥 Join Group
+- Integrasi dengan **Midtrans** untuk payment saat join group berbayar
 
-Backend – Group & Chat
+#### 💬 Room & Messages
+- Struktur **room / chat** (group & personal)
+- Integrasi **Pusher** untuk:
+  - Real-time group chat
+  - Real-time personal chat
 
-CRUD group (create, update, asset)
+---
 
-Discover group & people
+### 3. Backend – Revenue
 
-Join group (termasuk payment)
+- Mengambil data **revenue** & **balance** untuk creator
+- Melihat **history payout**
+- Membuat **withdraw request** (pengajuan pencairan saldo)
 
-Room & messages
+---
 
-Integrasi Pusher untuk real-time chat
+### 4. Frontend – Auth & Umum
 
-Backend – Revenue
+- Setup project: **React + Vite + Tailwind**
+- Slicing **landing page**
+- Halaman:
+  - Sign Up
+  - Sign In
+  - Forgot Password
+- Validasi form menggunakan:
+  - **React Hook Form**
+  - **Zod** (schema validation)
 
-Get revenue, balance
+---
 
-History payout
+### 5. Frontend – Discover & Payment
 
-Create withdraw
+- Halaman **discover group** & **detail group**
+- Integrasi API:
+  - List discover group
+  - Detail group
+- Halaman **success payment** dengan:
+  - Integrasi detail transaksi dari **Midtrans**
 
-Frontend – Setup & Auth
+---
 
-Setup project React + Vite
+### 6. Frontend – Chatting
 
-Slicing landing page
+Halaman chat dengan fitur:
 
-Slicing & integrasi Sign Up / Sign In / Forgot Password
+- List rooms (daftar chat)
+- Mengirim pesan (send message)
+- **Group info modal**
+- **Gallery modal** (media / gambar)
+- **Personal chat** & halaman profil
 
-Validasi dengan React Hook Form + Zod
+---
 
-Frontend – Discover & Payment
+### 7. Frontend – Settings & Revenue
 
-Slicing discover page & detail group
+#### ⚙️ Settings
+- Pengaturan:
+  - General
+  - Akun
+  - Groups
+- Create & update group:
+  - UI
+  - Integrasi API
 
-Integrasi API discover, detail group
+#### 💰 Revenue
+- Halaman revenue dengan tampilan **chart**
+- Fitur **withdraw** dan melihat **history withdraw**
 
-Success payment page + integrasi detail transaksi
+---
 
-Frontend – Chatting
+### 8. Frontend – Admin
 
-Slicing chat page
+- Halaman **Sign In Admin**
+- **Dashboard admin**
+- Fitur approval & update status **withdraw** creator
 
-Integrasi get rooms & send message
+---
 
-Group info modal, gallery modal
-
-Personal chat & profile
-
-Frontend – Settings & Revenue
-
-General/account/groups settings
-
-Create & update group (slicing + integrasi)
-
-Revenue page + Chart
-
-Withdraw & history withdraw
-
-Frontend – Admin
-
-Integrasi Sign In admin
-
-Dashboard admin
-
-Approval & update withdraw
-
-🎯 Tujuan Belajar
+## 🎯 Tujuan Belajar
 
 Dengan menyelesaikan project ini, kamu akan:
 
-Punya 1 portfolio project fullstack yang siap dipamerkan
+- Punya **1 portfolio project fullstack** yang layak dipamerkan di:
+  - GitHub
+  - LinkedIn
+  - CV / Resume
+- Memahami alur membangun aplikasi chat yang:
+  - Berbasis **real-world business**
+  - Mendukung **paid groups & revenue sharing**
+- Terbiasa dengan **modern tech stack**:
 
-Mengerti alur membangun aplikasi chat berbasis real-world business (paid groups & revenue)
+  - **Frontend**: React, Vite, Tailwind, TanStack Query
+  - **Backend**: Express, Prisma, PostgreSQL
+  - **Supporting**: Pusher, Midtrans, JWT, Zod
 
-Terbiasa dengan stack modern:
+- Memiliki pondasi kuat untuk berkarier sebagai:
+  - **Full-stack JavaScript / TypeScript Developer**
 
-React, Vite, Tailwind, TanStack Query
+---
 
-Express, Prisma, PostgreSQL
-
-Pusher, Midtrans, JWT, Zod
-
-Punya pondasi kuat untuk menjadi Full-stack JavaScript Developer
-
-📝 License
+## 📝 License
 
 Project ini dibuat sebagai bagian dari program belajar.
-Penggunaan ulang / modifikasi dipersilakan untuk keperluan belajar & portofolio.
+Penggunaan ulang dan modifikasi **dipersilakan** untuk:
 
-Happy coding & selamat membangun Chatyo! 🚀
+- Keperluan belajar
+- Materi portofolio pribadi
+
+Silakan cantumkan atribusi seperlunya jika kamu mempublikasikan ulang project ini.
+####
+````
