@@ -15,4 +15,28 @@ transactionsRoutes.post(
   transactionsController.updateTransactions
 );
 
+transactionsRoutes.get(
+  "/revenue",
+  verifyToken,
+  transactionsController.getRevenueStat
+);
+
+transactionsRoutes.get(
+  "/payouts",
+  verifyToken,
+  transactionsController.getHistoryPayouts
+);
+
+transactionsRoutes.post(
+  "/payouts",
+  verifyToken,
+  transactionsController.createWithdraw
+);
+
+transactionsRoutes.get(
+  "/balance",
+  verifyToken,
+  transactionsController.getBalance
+);
+
 export default transactionsRoutes;
