@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: "Lexend Deca";
+    color: #080C1A;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+}
+
+.header-gradient{
+    border: 50px solid;
+    border-image-source: linear-gradient(180deg, rgba(22, 93, 255, 0.21) 64.32%, rgba(22, 93, 255, 0.03) 100%);
+}
+
+.slide-right {
+    animation: slide-right 20s infinite linear;
+}
+  
+.slide-left {
+    animation: slide-left 20s infinite linear;
+}
+
+@keyframes slide-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+  
+@keyframes slide-left {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+.slide-top {
+    animation: slide-top 20s infinite linear;
+}
+  
+.slide-bottom {
+    animation: slide-bottom 20s infinite linear;
+}
+
+@keyframes slide-top {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+}
+  
+@keyframes slide-bottom {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+
+.hide-scrollbar {
+  overflow: auto; /* Allows scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.box {
+    background-image: repeating-linear-gradient(270deg, #F3F4F3, #F3F4F3 8px, transparent 8px, transparent 15px, #F3F4F3 15px);
+    background-size: 100% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+}
+
+body {
+  counter-reset: section;
+}
+
+.numbering::before {
+  counter-increment: section;
+  content: counter(section);
+}

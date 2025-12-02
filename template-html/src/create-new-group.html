@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HeyHao - Chatting</title>
+        <link href="./output.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="flex h-screen max-h-screen flex-1 bg-heyhao-grey overflow-hidden">
+            <aside class="flex h-screen w-fit">
+                <nav class="flex flex-col h-full justify-between items-center w-[84px] shrink-0 py-[30px] px-5 bg-heyhao-grey">
+                    <ul class="flex flex-col gap-5">
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/logos/logo-icon.svg" class="flex w-11 h-9 shrink-0" alt="logo" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/Menu.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="my-revenue.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/chart-square-grey.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                                <img src="assets/images/icons/chart-square-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="message-room-chat-no-display.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/messages.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                                <img src="assets/images/icons/messages-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon" />
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="flex flex-col gap-5">
+                        <li class="group">
+                            <a href="settings-general-settings.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/setting-2.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-full overflow-hidden hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/photos/Profile User.png" class="w-full h-full object-cover" alt="photo" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <main id="Main-Content-Container" class="relative flex flex-1">
+                <form action="message-group-created.html" class="flex flex-col flex-1 overflow-hidden">
+                    <div id="Header" class="flex h-[122px] w-full items-center justify-between border-b border-heyhao-border p-[30px] bg-white">
+                        <div class="relative flex flex-col w-full bg-white gap-3">
+                            <h1 class="font-bold text-2xl leading-[30px]">Create A New Group</h1>
+                            <nav>
+                                <ol class="flex items-center gap-1 leading-5 text-heyhao-secondary">
+                                    <li>
+                                        <a href="settings-general-settings.html" class="hover:underline">Settings</a>
+                                    </li>
+                                    <li>/</li>
+                                    <li>
+                                        <a href="settings-my-own-group.html" class="hover:underline">Group Profile</a>
+                                    </li>
+                                    <li>/</li>
+                                    <li>
+                                        <span class="font-medium leading-5 text-heyhao-blue">Create Group</span>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <button type="submit" class="flex shrink-0 rounded-full items-center py-4 px-8 gap-2 bg-heyhao-blue">
+                            <span class="font-bold leading-5 text-white text-nowrap">Create New Group</span>
+                            <img src="assets/images/icons/checklist-white-fill.svg" class="flex size-6 shrink-0" alt="icon" />
+                        </button>
+                    </div>
+                    <div id="Content" class="flex flex-1 overflow-y-scroll">
+                        <div class="flex flex-1 min-h-screen">
+                            <div id="Group-Settings" class="flex w-[636px] shrink-0 bg-white">
+                                <div class="flex flex-col w-full h-fit shrink-0 p-[30px] gap-[30px] bg-white">
+                                    <div id="Photo" class="flex items-center gap-3">
+                                        <div class="flex items-center justify-center rounded-full overflow-hidden size-[100px]">
+                                            <img id="photo-container" src="assets/images/photos/group-default.svg" alt="image" class="object-cover size-full" />
+                                        </div>
+                                        <input id="file-input" type="file" class="absolute opacity-0" />
+                                        <button type="button" id="add-photo" class="flex items-center gap-[6px] px-6 py-4 rounded-full bg-heyhao-black">
+                                            <p class="font-bold leading-[20px] text-white">Add Group Photo</p>
+                                            <img src="assets/images/icons/import-grey.svg" alt="icon" class="size-6 shrink-0" />
+                                        </button>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">Group Name</p>
+                                        <label class="relative group">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <img src="assets/images/icons/clipboard-grey.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon" />
+                                                <img src="assets/images/icons/clipboard-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon" />
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            </div>
+                                            <input type="text" autocomplete="off" name="" id="" placeholder="Enter group name" class="appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 px-6 pl-20 gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold focus:valid:ring-heyhao-blue transition-all duration-300" />
+                                        </label>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">About Group</p>
+                                        <label class="relative group">
+                                            <div class="absolute transform -translate-y-1/2 top-8 left-6 flex gap-4 items-center">
+                                                <img src="assets/images/icons/message-text-grey.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon" />
+                                                <img src="assets/images/icons/message-text-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon" />
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            </div>
+                                            <textarea name="" id="" placeholder="Type descriptions" rows="8" class="appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 px-6 pl-20 text-heyhao-black placeholder:text-heyhao-secondary font-semibold focus:valid:ring-heyhao-blue transition-all duration-300"></textarea>
+                                        </label>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">Group Type</p>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            <label class="relative group flex items-center gap-4 rounded-xl border border-heyhao-border py-5 px-6 hover:border-heyhao-blue has-[:checked]:bg-heyhao-blue/10 has-[:checked]:border-heyhao-blue/10 transition-all duration-300">
+                                                <img src="assets/images/icons/crown-grey.svg" class="flex size-6 shrink-0 group-has-[:checked]:hidden" alt="icon" />
+                                                <img src="assets/images/icons/crown-blue.svg" class="hidden size-6 shrink-0 group-has-[:checked]:flex" alt="icon" />
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border group-has-[:checked]:border-heyhao-blue/10"></div>
+                                                <p class="w-full font-semibold text-heyhao-secondary group-has-[:checked]:text-heyhao-blue transition-all duration-300">Free</p>
+                                                <input type="radio" name="type" id="free" class="flex size-6 shrink-0" />
+                                            </label>
+                                            <label class="relative group flex items-center gap-4 rounded-xl border border-heyhao-border py-5 px-6 hover:border-heyhao-blue has-[:checked]:bg-heyhao-blue/10 has-[:checked]:border-heyhao-blue/10 transition-all duration-300">
+                                                <img src="assets/images/icons/crown-grey.svg" class="flex size-6 shrink-0 group-has-[:checked]:hidden" alt="icon" />
+                                                <img src="assets/images/icons/crown-blue.svg" class="hidden size-6 shrink-0 group-has-[:checked]:flex" alt="icon" />
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border group-has-[:checked]:border-heyhao-blue/10"></div>
+                                                <p class="w-full font-semibold text-heyhao-secondary group-has-[:checked]:text-heyhao-blue transition-all duration-300">VIP</p>
+                                                <input type="radio" name="type" id="vip" class="flex size-6 shrink-0" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">Group Price</p>
+                                        <label class="relative group">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <img src="assets/images/icons/dollar-square-grey.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon" />
+                                                <img src="assets/images/icons/dollar-square-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon" />
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                                <span class="font-semibold group-has-[:placeholder-shown]:text-heyhao-secondary text-heyhao-black">Rp</span>
+                                            </div>
+                                            <input type="number" disabled autocomplete="off" name="" id="group-price" placeholder="" class="appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 pr-[159px] pl-[110px] gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold focus:valid:ring-heyhao-blue transition-all duration-300 disabled:bg-white" />
+                                            <div id="VIP-badge" class="absolute transform -translate-y-1/2 top-1/2 right-4 flex gap-0.5 rounded-lg items-center py-[6px] px-2 bg-heyhao-grey group-has-[:enabled]:hidden">
+                                                <img src="assets/images/icons/crown-grey-fill.svg" class="flex size-4 shrink-0" alt="icon" />
+                                                <p class="font-medium text-sm text-heyhao-secondary">VIP Featured</p>
+                                            </div>
+                                            <div id="Lifetime-Badge" class="absolute transform -translate-y-1/2 top-1/2 right-4 flex gap-0.5 rounded-lg items-center py-[6px] px-2 bg-heyhao-grey group-has-[:disabled]:hidden">
+                                                <img src="assets/images/icons/clock-grey-fill.svg" class="flex size-4 shrink-0" alt="icon" />
+                                                <p class="font-medium text-sm text-heyhao-secondary">LIFETIME</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- The .disabled-all class is used as an indicator and is controlled by JavaScript. The actual enabling and disabling of buttons and inputs are managed by JavaScript. -->
+                            <div id="Group-Assets-Benefit" class="group/parent disabled-all flex flex-col p-[30px] gap-[30px] w-[560px] shrink-0">
+                                <div id="Assets" class="flex flex-col rounded-3xl p-6 gap-3 bg-white">
+                                    <p class="font-medium text-sm text-heyhao-secondary">Group Asset</p>
+                                    <div id="Input-File-Container" class="flex flex-col gap-3">
+                                        <!-- The button's and input's disabled/enabled attributes, as well as the .file-uploaded class, are dynamically toggled by JavaScript for interactivity. -->
+                                        <button type="button" disabled class="btn-upload-file group relative disabled:bg-white flex h-16 items-center rounded-xl border border-heyhao-border py-5 px-6 gap-4 transition-all duration-300">
+                                            <input disabled type="file" name="" id="" class="file-input absolute opacity-0" />
+                                            <img src="assets/images/icons/document-text-grey.svg" class="flex size-6 shrink-0 group-[.file-uploaded]:hidden" alt="icon" />
+                                            <img src="assets/images/icons/document-text-black.svg" class="hidden size-6 shrink-0 group-[.file-uploaded]:flex" alt="icon" />
+                                            <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            <span class="file-name w-full max-w-[245px] text-left truncate font-semibold leading-5 text-heyhao-secondary group-[.file-uploaded]:text-heyhao-black"> Upload Media </span>
+                                            <div id="VIP-badge" class="flex shrink-0 gap-0.5 rounded-lg items-center py-[6px] px-2 bg-heyhao-grey group-enabled:hidden">
+                                                <img src="assets/images/icons/crown-grey-fill.svg" class="flex size-4 shrink-0" alt="icon" />
+                                                <p class="font-medium text-sm text-heyhao-secondary">VIP Featured</p>
+                                            </div>
+                                            <div class="flex items-center gap-4 group-disabled:hidden">
+                                                <div class="import-btn">
+                                                    <img src="assets/images/icons/import-blue.svg" class="flex size-6 shrink-0" alt="icon" />
+                                                </div>
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                                <div class="delete-btn">
+                                                    <img src="assets/images/icons/trash-red.svg" class="flex size-6 shrink-0" alt="icon" />
+                                                </div>
+                                            </div>
+                                        </button>
+                                        <button type="button" disabled class="btn-upload-file group relative disabled:bg-white flex h-16 items-center rounded-xl border border-heyhao-border py-5 px-6 gap-4 transition-all duration-300">
+                                            <input disabled type="file" name="" id="" class="file-input absolute opacity-0" />
+                                            <img src="assets/images/icons/document-text-grey.svg" class="flex size-6 shrink-0 group-[.file-uploaded]:hidden" alt="icon" />
+                                            <img src="assets/images/icons/document-text-black.svg" class="hidden size-6 shrink-0 group-[.file-uploaded]:flex" alt="icon" />
+                                            <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            <span class="file-name w-full max-w-[245px] text-left truncate font-semibold leading-5 text-heyhao-secondary group-[.file-uploaded]:text-heyhao-black"> Upload Media </span>
+                                            <div id="VIP-badge" class="flex shrink-0 gap-0.5 rounded-lg items-center py-[6px] px-2 bg-heyhao-grey group-enabled:hidden">
+                                                <img src="assets/images/icons/crown-grey-fill.svg" class="flex size-4 shrink-0" alt="icon" />
+                                                <p class="font-medium text-sm text-heyhao-secondary">VIP Featured</p>
+                                            </div>
+                                            <div class="flex items-center gap-4 group-disabled:hidden">
+                                                <div class="import-btn">
+                                                    <img src="assets/images/icons/import-blue.svg" class="flex size-6 shrink-0" alt="icon" />
+                                                </div>
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                                <div class="delete-btn">
+                                                    <img src="assets/images/icons/trash-red.svg" class="flex size-6 shrink-0" alt="icon" />
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <button type="button" id="Add-More-Media" disabled class="flex group items-center justify-center rounded-xl p-4 gap-0.5 bg-heyhao-blue/10 disabled:bg-heyhao-grey transition-all duration-300">
+                                        <span class="font-semibold text-sm text-heyhao-secondary hidden group-disabled:block">VIP Featured</span>
+                                        <span class="font-semibold text-sm text-heyhao-blue group-disabled:hidden">Add More Media</span>
+                                        <img src="assets/images/icons/add-circle-blue.svg" class="flex size-4 shrink-0 group-disabled:hidden" alt="icon" />
+                                    </button>
+                                </div>
+                                <div id="Benefits" class="flex flex-col rounded-3xl p-6 gap-3 bg-white">
+                                    <p class="font-medium text-sm text-heyhao-secondary">Group Benefit</p>
+                                    <div id="Input-Benefit-Container" class="flex flex-col gap-3">
+                                        <label class="relative group">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <p class="numbering flex size-4 shrink-0 items-center justify-center text-heyhao-black font-semibold text-lg group-has-[:placeholder-shown]:text-heyhao-secondary transition-all duration-300"></p>
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            </div>
+                                            <input type="text" disabled name="" id="" placeholder="Type Benefit" class="input-benefit appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 pr-[85px] disabled:pr-[171px] pl-20 gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold disabled:bg-white focus:valid:ring-heyhao-blue transition-all duration-300" />
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 right-6 flex items-center gap-4">
+                                                <div id="VIP-badge" class="flex shrink-0 gap-0.5 rounded-lg items-center py-[6px] px-2 bg-heyhao-grey group-has-[:enabled]:hidden">
+                                                    <img src="assets/images/icons/crown-grey-fill.svg" class="flex size-4 shrink-0" alt="icon" />
+                                                    <p class="font-medium text-sm text-heyhao-secondary">VIP Featured</p>
+                                                </div>
+                                                <div class="flex items-center gap-4 group-has-[:disabled]:hidden">
+                                                    <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                                    <div class="delete-btn cursor-pointer">
+                                                        <img src="assets/images/icons/close-circle-red.svg" class="flex size-6 shrink-0" alt="icon" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <label class="relative group">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <p class="numbering flex size-4 shrink-0 items-center justify-center text-heyhao-black font-semibold text-lg group-has-[:placeholder-shown]:text-heyhao-secondary transition-all duration-300"></p>
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            </div>
+                                            <input type="text" disabled name="" id="" placeholder="Type Benefit" class="input-benefit appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 pr-[85px] disabled:pr-[171px] pl-20 gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold disabled:bg-white focus:valid:ring-heyhao-blue transition-all duration-300" />
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 right-6 flex items-center gap-4">
+                                                <div id="VIP-badge" class="flex shrink-0 gap-0.5 rounded-lg items-center py-[6px] px-2 bg-heyhao-grey group-has-[:enabled]:hidden">
+                                                    <img src="assets/images/icons/crown-grey-fill.svg" class="flex size-4 shrink-0" alt="icon" />
+                                                    <p class="font-medium text-sm text-heyhao-secondary">VIP Featured</p>
+                                                </div>
+                                                <div class="flex items-center gap-4 group-has-[:disabled]:hidden">
+                                                    <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                                    <div class="delete-btn cursor-pointer">
+                                                        <img src="assets/images/icons/close-circle-red.svg" class="flex size-6 shrink-0" alt="icon" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <button type="button" id="Add-More-Benefit" disabled class="flex group items-center justify-center rounded-xl p-4 gap-0.5 bg-heyhao-blue/10 disabled:bg-heyhao-grey transition-all duration-300">
+                                        <span class="font-semibold text-sm text-heyhao-secondary hidden group-disabled:block">VIP Featured</span>
+                                        <span class="font-semibold text-sm text-heyhao-blue group-disabled:hidden">Add More Benefit</span>
+                                        <img src="assets/images/icons/add-circle-blue.svg" class="flex size-4 shrink-0 group-disabled:hidden" alt="icon" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </main>
+        </div>
+
+        <script src="js/photo-upload.js"></script>
+        <script src="js/create-group-page.js"></script>
+    
+    </body>
+</html>

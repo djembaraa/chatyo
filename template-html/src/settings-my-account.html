@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HeyHao - Chatting</title>
+        <link href="./output.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="flex h-screen max-h-screen flex-1 bg-heyhao-grey overflow-hidden">
+            <aside class="flex h-screen w-fit">
+                <nav class="flex flex-col h-full justify-between items-center w-[84px] shrink-0 py-[30px] px-5 bg-heyhao-grey">
+                    <ul class="flex flex-col gap-5">
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/logos/logo-icon.svg" class="flex w-11 h-9 shrink-0" alt="logo" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/Menu.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="my-revenue.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/chart-square-grey.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                                <img src="assets/images/icons/chart-square-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="message-room-chat-no-display.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/messages.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                                <img src="assets/images/icons/messages-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon" />
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="flex flex-col gap-5">
+                        <li class="group active">
+                            <a href="settings-my-account.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/setting-2.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                                <img src="assets/images/icons/setting-2-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-full overflow-hidden hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/photos/Profile User.png" class="w-full h-full object-cover" alt="photo" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="Sidebar" class="flex flex-col w-[300px] shrink-0 h-screen rounded-l-3xl border-r border-heyhao-border bg-white overflow-hidden">
+                    <div id="Top-Bar" class="flex items-center justify-between border-b border-heyhao-border py-[22.5px] px-5 gap-3">
+                        <h1 class="font-semibold text-2xl leading-[30px]">Settings</h1>
+                        <ul class="flex gap-3">
+                            <li class="group">
+                                <button id="Search" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center ring-1 ring-heyhao-border hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                    <img src="assets/images/icons/search-normal-black.svg" class="size-6" alt="icon" />
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="Menu" class="flex flex-col p-5 pb-[114px] justify-between gap-6 overflow-y-auto [&::-webkit-scrollbar]:hidden">
+                        <div class="flex flex-col gap-4">
+                            <h3 class="font-medium leading-5">Main Menu</h3>
+                            <div class="flex flex-col gap-1">
+                                <a href="settings-general-settings.html" class="group">
+                                    <div class="flex items-center rounded-xl p-4 gap-2 bg-white group-[.active]:bg-heyhao-grey group-hover:bg-heyhao-grey transition-all duration-300">
+                                        <img src="assets/images/icons/setting-2.svg" class="flex size-6 shrink-0 group-[.active]:hidden group-hover:hidden transition-all duration-300" alt="icon" />
+                                        <img src="assets/images/icons/setting-2-black.svg" class="hidden size-6 shrink-0 group-[.active]:flex group-hover:flex transition-all duration-300" alt="icon" />
+                                        <p class="group-[.active]:font-semibold group-hover:font-semibold font-medium leading-5 text-heyhao-secondary group-[.active]:text-heyhao-black group-hover:text-black transition-all duration-300">General Settings</p>
+                                    </div>
+                                </a>
+                                <a href="settings-my-account.html" class="group active">
+                                    <div class="flex items-center rounded-xl p-4 gap-2 bg-white group-[.active]:bg-heyhao-grey group-hover:bg-heyhao-grey transition-all duration-300">
+                                        <img src="assets/images/icons/user-square-nonactive.svg" class="flex size-6 shrink-0 group-[.active]:hidden group-hover:hidden transition-all duration-300" alt="icon" />
+                                        <img src="assets/images/icons/user-square-active.svg" class="hidden size-6 shrink-0 group-[.active]:flex group-hover:flex transition-all duration-300" alt="icon" />
+                                        <p class="group-[.active]:font-semibold group-hover:font-semibold font-medium leading-5 text-heyhao-secondary group-[.active]:text-heyhao-black group-hover:text-black transition-all duration-300">My Account</p>
+                                    </div>
+                                </a>
+                                <a href="settings-my-own-group.html" class="group">
+                                    <div class="flex items-center rounded-xl p-4 gap-2 bg-white group-[.active]:bg-heyhao-grey group-hover:bg-heyhao-grey transition-all duration-300">
+                                        <img src="assets/images/icons/crown-grey.svg" class="flex size-6 shrink-0 group-[.active]:hidden group-hover:hidden transition-all duration-300" alt="icon" />
+                                        <img src="assets/images/icons/crown-black.svg" class="hidden size-6 shrink-0 group-[.active]:flex group-hover:flex transition-all duration-300" alt="icon" />
+                                        <p class="group-[.active]:font-semibold group-hover:font-semibold font-medium leading-5 text-heyhao-secondary group-[.active]:text-heyhao-black group-hover:text-black transition-all duration-300">My Own Groups</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="group">
+                                    <div class="flex items-center rounded-xl p-4 gap-2 bg-white group-[.active]:bg-heyhao-grey group-hover:bg-heyhao-grey transition-all duration-300">
+                                        <img src="assets/images/icons/notification-grey.svg" class="flex size-6 shrink-0 group-[.active]:hidden group-hover:hidden transition-all duration-300" alt="icon" />
+                                        <img src="assets/images/icons/notification-black.svg" class="hidden size-6 shrink-0 group-[.active]:flex group-hover:flex transition-all duration-300" alt="icon" />
+                                        <p class="group-[.active]:font-semibold group-hover:font-semibold font-medium leading-5 text-heyhao-secondary group-[.active]:text-heyhao-black group-hover:text-black transition-all duration-300">Notifications</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <h3 class="font-medium leading-5">More Info & Support</h3>
+                            <div class="flex flex-col gap-1">
+                                <a href="#" class="group">
+                                    <div class="flex items-center rounded-xl p-4 gap-2 bg-white group-[.active]:bg-heyhao-grey group-hover:bg-heyhao-grey transition-all duration-300">
+                                        <img src="assets/images/icons/firstline-grey.svg" class="flex size-6 shrink-0 group-[.active]:hidden group-hover:hidden transition-all duration-300" alt="icon" />
+                                        <img src="assets/images/icons/firstline-black.svg" class="hidden size-6 shrink-0 group-[.active]:flex group-hover:flex transition-all duration-300" alt="icon" />
+                                        <p class="group-[.active]:font-semibold group-hover:font-semibold font-medium leading-5 text-heyhao-secondary group-[.active]:text-heyhao-black group-hover:text-black transition-all duration-300">Log Activity</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="group">
+                                    <div class="flex items-center rounded-xl p-4 gap-2 bg-white group-[.active]:bg-heyhao-grey group-hover:bg-heyhao-grey transition-all duration-300">
+                                        <img src="assets/images/icons/note-2-grey.svg" class="flex size-6 shrink-0 group-[.active]:hidden group-hover:hidden transition-all duration-300" alt="icon" />
+                                        <img src="assets/images/icons/note-2-black.svg" class="hidden size-6 shrink-0 group-[.active]:flex group-hover:flex transition-all duration-300" alt="icon" />
+                                        <p class="group-[.active]:font-semibold group-hover:font-semibold font-medium leading-5 text-heyhao-secondary group-[.active]:text-heyhao-black group-hover:text-black transition-all duration-300">Community Standard</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="group">
+                                    <div class="flex items-center rounded-xl p-4 gap-2 bg-white group-[.active]:bg-heyhao-grey group-hover:bg-heyhao-grey transition-all duration-300">
+                                        <img src="assets/images/icons/direct-inbox-grey.svg" class="flex size-6 shrink-0 group-[.active]:hidden group-hover:hidden transition-all duration-300" alt="icon" />
+                                        <img src="assets/images/icons/direct-inbox-black.svg" class="hidden size-6 shrink-0 group-[.active]:flex group-hover:flex transition-all duration-300" alt="icon" />
+                                        <p class="group-[.active]:font-semibold group-hover:font-semibold font-medium leading-5 text-heyhao-secondary group-[.active]:text-heyhao-black group-hover:text-black transition-all duration-300">Cookie Privacy</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="fixed bottom-0 left-[84px] w-[300px]">
+                            <div class="flex items-center justify-between border-t border-r bg-white border-heyhao-border p-6 gap-2 rounded-bl-3xl">
+                                <div>
+                                    <p class="font-medium leading-5">Having trouble?</p>
+                                    <a href="#" class="mt-2 font-medium text-sm leading-[17.5px] text-heyhao-secondary hover:underline">Contact Help Center now!</a>
+                                </div>
+                                <img src="assets/images/icons/message-question-blue-opacity.svg" class="flex size-11 shrink-0" alt="icon" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <main id="Main-Content-Container" class="relative flex flex-1 flex-col bg-white overflow-y-auto">
+                <div class="relative flex items-center w-full h-[90px] shrink-0 border-b border-heyhao-border bg-white p-[30px]">
+                    <h2 class="font-bold text-2xl leading-[30px]">My Account</h2>
+                </div>
+                <div class="overflow-y-auto [&::-webkit-scrollbar]:hidden">
+                    <div class="w-full flex min-h-[calc(100vh-123px)] p-[30px]">
+                        <div class="flex flex-col gap-[30px] w-[435px]">
+                            <section id="Avatar" class="flex items-center gap-[12px]">
+                                <div class="flex items-center justify-center rounded-full overflow-hidden size-[100px] shrink-0">
+                                    <img id="photo-container" src="assets/images/photos/my-account.png" alt="image" class="object-cover size-full" />
+                                </div>
+                                <input id="file-input" type="file" class="absolute opacity-0" />
+                                <button type="button" id="add-photo" class="flex items-center gap-[6px] px-[24px] py-[14px] rounded-full bg-heyhao-black">
+                                    <img src="assets/images/icons/edit-2-white-fill.svg" alt="icon" class="size-6 shrink-0" />
+                                    <p class="font-bold leading-[20px] text-white">Change Avatar</p>
+                                </button>
+                            </section>
+                            <section id="Inputs" class="flex flex-col gap-[30px]">
+                                <div id="Email" class="relative">
+                                    <div class="relative h-[72px] overflow-hidden rounded-[24px] bg-heyhao-border py-[24px]">
+                                        <img src="assets/images/icons/sms-grey.svg" alt="icon" class="absolute left-[24px] top-1/2 size-[24px] shrink-0 -translate-y-1/2" />
+                                        <input readonly id="Email" placeholder="" type="email" value="Bimore@shaynakit.com" class="peer absolute bottom-0 left-0 right-0 top-0 w-full h-full bg-transparent font-semibold leading-[20px] focus:outline-none pb-[16px] pl-[80px] pt-[36px] z-10" />
+                                        <label for="Email" class="absolute left-[80px] text-heyhao-secondary transition-all duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 text-sm leading-[17.5px] font-medium top-4 peer-focus:top-4 -translate-y-0 peer-focus:-translate-y-0">Your email address</label>
+                                    </div>
+                                </div>
+                                <div id="Fullname" class="relative">
+                                    <div class="relative h-[72px] overflow-hidden rounded-[24px] bg-white py-[24px] border-[1.5px] border-heyhao-border">
+                                        <img src="assets/images/icons/user-square-grey.svg" alt="icon" class="absolute left-[24px] top-1/2 size-[24px] shrink-0 -translate-y-1/2" />
+                                        <div class="w-[1.5px] h-6 bg-heyhao-border absolute left-[64px]"></div>
+                                        <input readonly id="Fullname" placeholder="" type="text" value="Bimore Wannabe" class="peer absolute bottom-0 left-0 right-0 top-0 w-full h-full bg-transparent font-semibold leading-[20px] focus:outline-none pb-[16px] pl-[80px] pt-[36px] z-10" />
+                                        <label for="Fullname" class="absolute left-[80px] text-heyhao-secondary transition-all duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 text-sm leading-[17.5px] font-medium top-4 peer-focus:top-4 -translate-y-0 peer-focus:-translate-y-0">Enter your full name</label>
+                                    </div>
+                                </div>
+                                <div id="Password" class="relative">
+                                    <div class="relative h-[72px] overflow-hidden rounded-[24px] bg-white py-[24px] border-[1.5px] border-heyhao-border">
+                                        <img src="assets/images/icons/lock-grey.svg" alt="icon" class="absolute left-[24px] top-1/2 size-[24px] shrink-0 -translate-y-1/2" />
+                                        <div class="w-[1.5px] h-6 bg-heyhao-border absolute left-[64px]"></div>
+                                        <button type="button" data-target="Password-Input" class="show-password absolute right-[24px] transform -translate-y-1/2 top-1/2 z-30">
+                                            <img src="assets/images/icons/eye-grey.svg" alt="Hide password icon" class="show-icon size-[24px] shrink-0" />
+                                            <img src="assets/images/icons/eye-slash-black.svg" alt="Show password icon" class="hide-icon size-[24px] shrink-0 hidden" />
+                                        </button>
+                                        <input readonly id="Password-Input" placeholder="" type="password" value="rahasia rahasia" class="peer absolute bottom-0 left-0 right-0 top-0 w-full h-full bg-transparent font-semibold leading-[20px] tracking-[0.2em] focus:outline-none pb-[16px] px-[80px] pt-[36px] z-10" />
+                                        <label for="Password" class="absolute left-[80px] text-heyhao-secondary transition-all duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 text-sm leading-[17.5px] font-medium top-4 peer-focus:top-4 -translate-y-0 peer-focus:-translate-y-0">Your Password</label>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="Buttons" class="flex flex-col gap-[12px]">
+                                <a href="">
+                                    <div class="bg-heyhao-blue rounded-full justify-center flex py-4 text-white w-full font-bold leading-[20px]">Update Profile</div>
+                                </a>
+                                <a href="">
+                                    <div class="bg-[#ED6B6017] rounded-full justify-center flex py-4 text-heyhao-coral w-full font-bold leading-[20px]">Log Out</div>
+                                </a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="Search-Modal" class="group absolute inset-0 z-50 flex bg-heyhao-black/80 overflow-hidden hidden">
+            <div class="w-fit h-[520px] m-auto">
+                <form class="group flex flex-col w-[440px] h-fit rounded-3xl p-5 gap-5 mx-auto bg-white">
+                    <label class="relative group">
+                        <input type="text" class="appearance-none outline-none w-full h-6 px-8 text-heyhao-black placeholder:text-heyhao-secondary font-semibold" placeholder="Cari Group atau Pengguna lain" />
+                        <button type="button" class="absolute left-0 top-0">
+                            <img src="assets/images/icons/search-normal.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon" />
+                            <img src="assets/images/icons/search-normal-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon" />
+                        </button>
+                        <button type="reset" class="absolute right-0 top-0 flex group-has-[:placeholder-shown]:hidden">
+                            <img src="assets/images/icons/close-circle-black-fill.svg" class="flex size-6 shrink-0" alt="icon" />
+                        </button>
+                    </label>
+                    <div id="Result" class="flex flex-col gap-5 group-has-[:placeholder-shown]:hidden">
+                        <hr class="border-heyhao-border" />
+                        <div id="Available-Groups" class="flex flex-col gap-4">
+                            <p class="text-sm text-heyhao-secondary">Available Groups</p>
+                            <a href="#" class="group-card">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <img src="assets/images/photos/bwa.svg" class="flex size-8 shrink-0 rounded-full overflow-hidden object-cover" alt="photo" />
+                                        <span class="result-title font-medium truncate">Laravel PHP Indonesia</span>
+                                    </div>
+                                    <p class="flex items-center rounded-full py-0.5 px-2 bg-heyhao-blue/10 font-bold text-sm text-heyhao-blue gap-0.5">VIP</p>
+                                </div>
+                            </a>
+                            <a href="#" class="group-card">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <img src="assets/images/photos/laravel.svg" class="flex size-8 shrink-0 rounded-full overflow-hidden object-cover" alt="photo" />
+                                        <span class="result-title font-medium truncate">Belajar Bareng Laravel PHP</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="group-card">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <img src="assets/images/photos/group.svg" class="flex size-8 shrink-0 rounded-full overflow-hidden object-cover" alt="photo" />
+                                        <span class="result-title font-medium truncate">Laravel Gurus: Build Better Apps</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div id="Available-Groups" class="flex flex-col gap-4">
+                            <p class="text-sm text-heyhao-secondary">Available People</p>
+                            <a href="#" class="flex items-center gap-3">
+                                <img src="assets/images/photos/photo-1.png" class="flex size-8 shrink-0 rounded-full overflow-hidden object-cover" alt="photo" />
+                                <span class="result-title font-medium truncate">Laratih Markisa</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3">
+                                <img src="assets/images/photos/photo-2.png" class="flex size-8 shrink-0 rounded-full overflow-hidden object-cover" alt="photo" />
+                                <span class="result-title font-medium truncate">Meylara A</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3">
+                                <img src="assets/images/photos/photo-3.png" class="flex size-8 shrink-0 rounded-full overflow-hidden object-cover" alt="photo" />
+                                <span class="result-title font-medium truncate">Talara Vestapend</span>
+                            </a>
+                        </div>
+                        <a href="#" class="rounded-full py-4 px-3 bg-heyhao-blue w-full text-center font-bold text-white"> View more result </a>
+                        <div id="Not-Found" class="flex w-full h-[416px] hidden">
+                            <div class="flex flex-col gap-3 m-auto items-center text-center">
+                                <img src="assets/images/icons/message-remove.svg" class="flex size-[52px] shrink-0" alt="icon" />
+                                <p class="font-medium text-lg leading-[28px] text-heyhao-secondary">
+                                    Oh no! It seems like what you're <br />
+                                    looking for isn't found.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="js/tabs.js"></script>
+        <script src="js/message-search-modal.js"></script>
+        <script src="js/photo-upload.js"></script>
+        <script src="js/reveal-password.js"></script>
+    </body>
+</html>
