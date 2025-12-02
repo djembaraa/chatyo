@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HeyHao - Chatting</title>
+        <link href="./output.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="flex h-screen max-h-screen flex-1 bg-heyhao-grey overflow-hidden">
+            <aside class="flex h-screen w-fit">
+                <nav class="flex flex-col h-full justify-between items-center w-[84px] shrink-0 py-[30px] px-5 bg-heyhao-grey">
+                    <ul class="flex flex-col gap-5">
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/logos/logo-icon.svg" class="flex w-11 h-9 shrink-0" alt="logo" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/Menu.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="my-revenue.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/chart-square-grey.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                                <img src="assets/images/icons/chart-square-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon" />
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="message-room-chat-no-display.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/messages.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                                <img src="assets/images/icons/messages-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon" />
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="flex flex-col gap-5">
+                        <li class="group">
+                            <a href="settings-general-settings.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/setting-2.svg" class="size-6 group-[.active]:hidden" alt="icon" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-full overflow-hidden hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/photos/Profile User.png" class="w-full h-full object-cover" alt="photo" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <main id="Main-Content-Container" class="relative flex flex-1 flex-col bg-white overflow-y-auto">
+                <section id="Nav-Top" class="relative w-full p-[30px] bg-[linear-gradient(93.23deg,_#FFFFFF_0%,_#EFF2F7_90%)] flex flex-col gap-[30px] border-b border-heyhao-border">
+                    <img src="assets/images/backgrounds/ornament-discover-left.png" class="absolute h-[252px] bottom-0 left-0" alt="ornament" />
+                    <img src="assets/images/backgrounds/ornament-discover-right.png" class="absolute h-[252px] top-0 right-0" alt="ornament" />
+                    <div class="flex items-center justify-between relative z-30">
+                        <form action="discover-result.html" class="relative group">
+                            <button type="submit" class="shrink-0 absolute left-4 top-1/2 -translate-y-1/2">
+                                <img src="assets/images/icons/search-normal.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon">
+                                <img src="assets/images/icons/search-normal-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon">
+                            </button>
+                            <input type="text" class="bg-white w-[545px] h-[56px] rounded-2xl pl-[48px] border border-heyhao-border placeholder:font-semibold placeholder:text-base placeholder:leading-[20px] placeholder:text-heyhao-secondary font-semibold text-base leading-[20px] text-heyhao-black outline-none focus:border-heyhao-blue transition-all duration-300 pr-4" placeholder="Discover your group. Build your network." />
+                        </form>
+                        <ul class="flex items-center gap-4">
+                            <li class="group">
+                                <a href="">
+                                    <div class="flex items-center gap-1">
+                                        <div class="relative shrink-0">
+                                            <img src="assets/images/icons/code.svg" class="size-6 opacity-100 shrink-0 group-[&.active]:opacity-0 group-hover:opacity-0 transition-all duration-300" alt="icon" />
+                                            <img src="assets/images/icons/code-black.svg" class="size-6 opacity-0 top-0 absolute shrink-0 group-[&.active]:opacity-100 group-hover:opacity-100 transition-all duration-300" alt="icon" />
+                                        </div>
+                                        <p class="font-medium text-sm leading-[17.5px] text-heyhao-dark-grey group-[&.active]:text-heyhao-black group-hover:text-heyhao-black transition-all duration-300">Programmer</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="">
+                                    <div class="flex items-center gap-1">
+                                        <div class="relative shrink-0">
+                                            <img src="assets/images/icons/bezier.svg" class="size-6 opacity-100 shrink-0 group-[&.active]:opacity-0 group-hover:opacity-0 transition-all duration-300" alt="icon" />
+                                            <img src="assets/images/icons/bezier-black.svg" class="size-6 opacity-0 top-0 absolute shrink-0 group-[&.active]:opacity-100 group-hover:opacity-100 transition-all duration-300" alt="icon" />
+                                        </div>
+                                        <p class="font-medium text-sm leading-[17.5px] text-heyhao-dark-grey group-[&.active]:text-heyhao-black group-hover:text-heyhao-black transition-all duration-300">UIUX Design</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="">
+                                    <div class="flex items-center gap-1">
+                                        <div class="relative shrink-0">
+                                            <img src="assets/images/icons/path-2.svg" class="size-6 opacity-100 shrink-0 group-[&.active]:opacity-0 group-hover:opacity-0 transition-all duration-300" alt="icon" />
+                                            <img src="assets/images/icons/path-2-black.svg" class="size-6 opacity-0 top-0 absolute shrink-0 group-[&.active]:opacity-100 group-hover:opacity-100 transition-all duration-300" alt="icon" />
+                                        </div>
+                                        <p class="font-medium text-sm leading-[17.5px] text-heyhao-dark-grey group-[&.active]:text-heyhao-black group-hover:text-heyhao-black transition-all duration-300">Graphic Designer</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="">
+                                    <div class="flex items-center gap-1">
+                                        <div class="relative shrink-0">
+                                            <img src="assets/images/icons/video-play.svg" class="size-6 opacity-100 shrink-0 group-[&.active]:opacity-0 group-hover:opacity-0 transition-all duration-300" alt="icon" />
+                                            <img src="assets/images/icons/video-play-black.svg" class="size-6 opacity-0 top-0 absolute shrink-0 group-[&.active]:opacity-100 group-hover:opacity-100 transition-all duration-300" alt="icon" />
+                                        </div>
+                                        <p class="font-medium text-sm leading-[17.5px] text-heyhao-dark-grey group-[&.active]:text-heyhao-black group-hover:text-heyhao-black transition-all duration-300">Entertainment</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <header class="flex items-center justify-between relative z-30">
+                        <h1 class="font-bold text-[42px] leading-[52.5px]">
+                            Discover And Explore 🚀 <br />
+                            A Community On <span class="text-heyhao-blue">HeyHao</span>.
+                        </h1>
+                        <a href="create-new-group.html">
+                            <div class="flex items-center gap-1 py-[14px] px-[26px] rounded-full bg-heyhao-blue">
+                                <p class="font-bold leading-[20px] text-white">Create Group</p>
+                                <img src="assets/images/icons/add-circle-white-fill.svg" alt="icon" class="size-6 shrink-0" />
+                            </div>
+                        </a>
+                    </header>
+                </section>
+                <div class="w-full flex flex-col gap-[30px] p-[30px]">
+                    <section id="Featured-Groups" class="flex flex-col gap-[12px]">
+                        <h2 class="font-semibold text-xl leading-[25px]">Featured Groups</h2>
+                        <div id="Cards-Item" class="grid grid-cols-3 gap-4">
+                            <div class="card group vip rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-1.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">Figma Wizards: From Zero To Magic</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Buat yang suka belajar UI Design, yuk ubah desainmu menjadi desain kece 😉</p>
+                                <a href="group-profile-vip.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-2.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">Indonesia Laravel Creatives</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Komunitas Laravel Indonesia untuk kreator digital. Kode, desain, dan inovasi dalam satu tempat.</p>
+                                <a href="group-profile-free.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group vip rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-3.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">UI/UX Designers & Coders Circle</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Perpaduan UI/UX designer dan programmer. Bareng-bareng bikin karya yang impactful!</p>
+                                <a href="group-profile-vip.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-4.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">Laravel Gurus: Build Better Apps</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Bimbingan sesama developer untuk bikin aplikasi Laravel yang powerful dan scalable.</p>
+                                <a href="group-profile-free.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group vip rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-5.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">Laravel Legends: Indonesia Devs Community</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Komunitas seru buat developer Laravel di Indonesia. Yuk, belajar, berbagi, dan berkembang bersama!</p>
+                                <a href="group-profile-vip.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-6.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">UI Ninjas: Coding Meets Creativity</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Grup kolaboratif bagi desainer dan programmer untuk gabungin kreativitas dengan logika.</p>
+                                <a href="group-profile-free.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-7.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">Belajar Laravel Bersama Developer Lain</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Grup kolaboratif bagi desainer dan programmer untuk gabungin kreativitas dengan logika.</p>
+                                <a href="group-profile-free.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-8.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">Laravel Projects & Ideas Forum</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Grup kolaboratif bagi desainer dan programmer untuk gabungin kreativitas dengan logika.</p>
+                                <a href="group-profile-free.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card group rounded-3xl border border-heyhao-border relative overflow-hidden p-6 flex flex-col gap-4">
+                                <img src="assets/images/backgrounds/ornament-featured.png" alt="icon" class="absolute bottom-0 right-0 h-[210px] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                <div class="flex items-center justify-between relative z-10">
+                                    <div class="flex justify-center items-center rounded-full overflow-hidden size-[64px] shrink-0">
+                                        <img src="assets/images/thumbnails/featured-9.png" alt="icon" class="size-full object-cover" />
+                                    </div>
+                                    <div class="hidden group-[&.vip]:flex items-center gap-[2px] py-[6px] px-2 bg-[#165DFF17] rounded-full">
+                                        <img src="assets/images/icons/crown-blue-fill.svg" alt="icon" class="size-4 shrink-0" />
+                                        <p class="font-bold text-sm leading-[17.5px] text-heyhao-blue">VIP</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 relative z-10">
+                                    <h3 class="line-clamp-1 font-semibold text-lg leading-[22.5px]">Laravel Enthusiasts Unite Platform</h3>
+                                    <div class="flex items-center gap-1">
+                                        <img src="assets/images/icons/profile-2user-green.svg" alt="icon" class="size-4 shrink-0" />
+                                        <div class="flex gap-1">
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">22.259</p>
+                                            <p class="font-semibold text-sm leading-[17.5px] text-heyhao-green">Members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="relative z-10 font-medium text-sm leading-[25.2px] text-heyhao-secondary line-clamp-2">Grup kolaboratif bagi desainer dan programmer untuk gabungin kreativitas dengan logika.</p>
+                                <a href="group-profile-free.html" class="relative z-10">
+                                    <div class="flex items-center gap-[2px]">
+                                        <p class="font-semibold text-sm leading-[17.5px] text-heyhao-blue hover:underline">View Group Details</p>
+                                        <img src="assets/images/icons/arrow-right-blue.svg" alt="icon" class="size-[12px] shrink-0" />
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="Pagination" class="mx-auto">
+                        <ul class="flex items-center gap-4">
+                            <div id="Step-Before" class="group nonactive shrink-0">
+                                <button type="button" id="Step-Before-Active" class="group-[&.nonactive]:hidden group-[&.active]:block p-[10px] rounded-xl border border-heyhao-border bg-white shrink-0">
+                                    <img src="assets/images/icons/arrow-left.svg" alt="icon" class="size-6 shrink-0" />
+                                </button>
+                                <button disabled type="button" id="Step-Before-Nonactive" class="group-[&.nonactive]:block group-[&.active]:hidden p-[10px] rounded-xl border border-heyhao-border bg-white shrink-0">
+                                    <img src="assets/images/icons/arrow-left-nonactive.svg" alt="icon" class="size-6 shrink-0" />
+                                </button>
+                            </div>
+                            <div id="Steps" class="flex items-center gap-4">
+                                <li class="group active">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">1</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">2</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">3</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">4</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">5</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">6</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">7</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">8</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">9</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">10</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">...</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="">
+                                        <div class="size-[44px] flex items-center justify-center rounded-xl border border-heyhao-border bg-white shrink-0 group-hover:bg-[#165DFF17] group-[&.active]:bg-[#165DFF17] group-hover:border-[#165DFF17] group-[&.active]:border-[#165DFF17] transition-all duration-300">
+                                            <p class="font-semibold leading-[20px] transition-all duration-300 group-hover:text-heyhao-blue group-[&.active]:text-heyhao-blue">250</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
+                            <div id="Step-After" class="group active shrink-0">
+                                <button type="button" id="Step-After-Active" class="group-[&.nonactive]:hidden group-[&.active]:block p-[10px] rounded-xl border border-heyhao-border bg-white shrink-0">
+                                    <img src="assets/images/icons/arrow-left.svg" alt="icon" class="size-6 rotate-180" />
+                                </button>
+                                <button disabled type="button" id="Step-After-Nonactive" class="group-[&.nonactive]:block group-[&.active]:hidden p-[10px] rounded-xl border border-heyhao-border bg-white shrink-0">
+                                    <img src="assets/images/icons/arrow-left-nonactive.svg" alt="icon" class="size-6 rotate-180" />
+                                </button>
+                            </div>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

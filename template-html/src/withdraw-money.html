@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HeyHao - Chatting</title>
+        <link href="./output.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="flex h-screen max-h-screen flex-1 bg-heyhao-grey overflow-hidden">
+            <aside class="flex h-screen w-fit">
+                <nav class="flex flex-col h-full justify-between items-center w-[84px] shrink-0 py-[30px] px-5 bg-heyhao-grey">
+                    <ul class="flex flex-col gap-5">
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/logos/logo-icon.svg" class="flex w-11 h-9 shrink-0" alt="logo">
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/Menu.svg" class="size-6 group-[.active]:hidden" alt="icon">
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="my-revenue.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/chart-2-grey.svg" class="size-6 group-[.active]:hidden" alt="icon">
+                                <img src="assets/images/icons/chart-square-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon">
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="message-room-chat-no-display.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/messages.svg" class="size-6 group-[.active]:hidden" alt="icon">
+                                <img src="assets/images/icons/messages-white-fill.svg" class="size-6 hidden group-[.active]:flex" alt="icon">
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="flex flex-col gap-5">
+                        <li class="group">
+                            <a href="settings-general-settings.html" class="size-11 flex shrink-0 bg-white rounded-xl p-[10px] items-center justify-center group-[.active]:bg-heyhao-blue hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/icons/setting-2.svg" class="size-6 group-[.active]:hidden" alt="icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="size-11 flex shrink-0 bg-white rounded-full overflow-hidden hover:ring-1 hover:ring-heyhao-blue transition-all duration-300">
+                                <img src="assets/images/photos/Profile User.png" class="w-full h-full object-cover" alt="photo">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <main id="Main-Content-Container" class="relative flex flex-1">
+                <div class="flex flex-col flex-1">
+                    <div id="Header" class="relative flex flex-col w-full shrink-0 border-b border-heyhao-border bg-white p-[30px] gap-3">
+                        <h1 class="font-bold text-2xl leading-[30px]">Withdraw Money</h1>
+                        <nav>
+                            <ol class="flex items-center gap-1 leading-5 text-heyhao-secondary">
+                                <li>
+                                    <a href="my-revenue.html" class="hover:underline">My Revenue Stat</a>
+                                </li>
+                                <li>/</li>
+                                <li>
+                                    <span class="font-medium leading-5 text-heyhao-blue">Request Withdraw</span>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div id="Content" class="flex flex-1 overflow-y-scroll">
+                        <div class="flex flex-1 min-h-screen">
+                            <div class="flex w-[636px] shrink-0 bg-white">
+                                <form action="withdraw-success.html" class="flex flex-col flex-1 gap-[30px] p-[30px] bg-white">
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">Total Amount</p>
+                                        <label class="relative group">
+                                            <input type="number" autocomplete="off" name="" id="" placeholder="" class="relative appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 px-6 pl-[110px] gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold focus:valid:ring-heyhao-blue transition-all duration-300">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <img src="assets/images/icons/dollar-circle-grey.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon">
+                                                <img src="assets/images/icons/dollar-circle-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon">
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                                <span class="font-semibold group-has-[:placeholder-shown]:text-heyhao-secondary text-heyhao-black">Rp</span>
+                                            </div>
+                                            <span class="absolute inset-0 flex items-center right-0 bg-[linear-gradient(90deg,rgba(237,107,96,0)_80%,rgba(237,107,96,0.09)_100%)] rounded-xl border border-heyhao-coral">
+                                                <img src="assets/images/icons/information.svg" class="ml-auto flex size-6 shrink-0" alt="icon">
+                                                <span class="font-medium text-sm text-heyhao-coral ml-1 mr-5">Balance Kurang</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">Select Bank</p>
+                                        <label class="relative group">
+                                            <input type="text" autocomplete="off" name="" id="" placeholder="Type your bank account?" class="relative appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 px-6 pl-20 gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold focus:valid:ring-heyhao-blue transition-all duration-300">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <img src="assets/images/icons/bank-grey.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon">
+                                                <img src="assets/images/icons/bank-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon">
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            </div>
+                                            <span class="absolute inset-0 flex items-center right-0 bg-[linear-gradient(90deg,rgba(237,107,96,0)_80%,rgba(237,107,96,0.09)_100%)] rounded-xl border border-heyhao-coral">
+                                                <img src="assets/images/icons/information.svg" class="ml-auto flex size-6 shrink-0" alt="icon">
+                                                <span class="font-medium text-sm text-heyhao-coral ml-1 mr-5">Bank tidak dikenal</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">Bank Account Number</p>
+                                        <label class="relative group">
+                                            <input type="number" autocomplete="off" name="" id="" placeholder="Type your bank number?" class="relative appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 px-6 pl-20 gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold focus:valid:ring-heyhao-blue transition-all duration-300">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <img src="assets/images/icons/card-grey.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon">
+                                                <img src="assets/images/icons/card-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon">
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            </div>
+                                            <span class="absolute inset-0 flex items-center right-0 bg-[linear-gradient(90deg,rgba(48,178,45,0)_80%,rgba(48,178,45,0.09)_100%)] rounded-r-xl">
+                                                <img src="assets/images/icons/verifiy-green-fill.svg" class="ml-auto mr-5 flex size-6 shrink-0" alt="icon">
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <p class="font-medium text-sm text-heyhao-secondary">Bank Account Name</p>
+                                        <label class="relative group">
+                                            <input type="text" autocomplete="off" name="" id="" placeholder="Under whose name is the bank you use?" class="relative appearance-none outline-none w-full rounded-xl ring-1 ring-heyhao-border py-5 px-6 pl-20 gap-4 text-heyhao-black placeholder:text-heyhao-secondary font-semibold focus:valid:ring-heyhao-blue transition-all duration-300">
+                                            <div class="absolute transform -translate-y-1/2 top-1/2 left-6 flex gap-4 items-center">
+                                                <img src="assets/images/icons/user-square-grey.svg" class="hidden size-6 shrink-0 group-has-[:placeholder-shown]:flex" alt="icon">
+                                                <img src="assets/images/icons/user-square-black.svg" class="flex size-6 shrink-0 group-has-[:placeholder-shown]:hidden" alt="icon">
+                                                <div class="flex h-6 shrink-0 border border-heyhao-border"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="h-[62px] rounded-full py-4 px-6 bg-heyhao-blue font-bold leading-5 text-white w-fit mb-[30px]">
+                                        Request for Withdraw
+                                    </button>
+                                    <span class="spacer flex h-[30px] shrink-0"></span>
+                                </form>
+                            </div>
+                            <div class="flex w-[560px] shrink-0">
+                                <div class="flex flex-1 flex-col gap-[30px] p-[30px]">
+                                    <div class="relative flex flex-col w-full h-[282px] shrink-0 rounded-3xl overflow-hidden">
+                                        <div class="absolute inset-0">
+                                            <img src="assets/images/backgrounds/ornament-withdraw.png" class="w-full h-full object-cover" alt="">
+                                        </div>
+                                        <div class="relative flex flex-col p-6 flex-1">
+                                            <button class="flex items-center gap-2 rounded-full p-2 pr-4 w-fit bg-heyhao-purple">
+                                                <img src="assets/images/icons/idr-flag.svg" class="flex size-8 shrink-0" alt="icon">
+                                                <p class="font-bold text-white">IDR</p>
+                                            </button>
+                                            <div class="flex flex-col gap-2 mt-[21px]">
+                                                <p class="font-medium leading-5 text-[#785D93]">Total Balance</p>
+                                                <p class="font-bold text-[42px] leading-[52.5px]">Rp23.500.0000</p>
+                                            </div>
+                                            <hr class="border-white/[21%] mt-10 mb-6">
+                                            <p class="font-medium leading-5 text-[#876A9E]">Bimore Wannabe</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-6 p-6 rounded-3xl w-full bg-white">
+                                        <div class="flex flex-col gap-3">
+                                            <p class="font-semibold leading-5">Withdraw Terms & Conditions</p>
+                                            <div class="flex items-center gap-[6px]">
+                                                <img src="assets/images/icons/checklist-green-fill.svg" class="flex size-6 shrink-0" alt="icon">
+                                                <p class="font-semibold leading-5">Bank account details must be accurate and valid.</p>
+                                            </div>
+                                            <div class="flex items-center gap-[6px]">
+                                                <img src="assets/images/icons/checklist-green-fill.svg" class="flex size-6 shrink-0" alt="icon">
+                                                <p class="font-semibold leading-5">Processing takes up to 3 business days.</p>
+                                            </div>
+                                            <div class="flex items-center gap-[6px]">
+                                                <img src="assets/images/icons/checklist-green-fill.svg" class="flex size-6 shrink-0" alt="icon">
+                                                <p class="font-semibold leading-5">Only official platform methods are accepted.</p>
+                                            </div>
+                                            <div class="flex items-center gap-[6px]">
+                                                <img src="assets/images/icons/checklist-green-fill.svg" class="flex size-6 shrink-0" alt="icon">
+                                                <p class="font-semibold leading-5">Fake withdrawal requests will be rejected.</p>
+                                            </div>
+                                            <div class="flex items-center gap-[6px]">
+                                                <img src="assets/images/icons/checklist-green-fill.svg" class="flex size-6 shrink-0" alt="icon">
+                                                <p class="font-semibold leading-5">Contact support if you encounter issues.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-[10px] rounded-full py-4 px-6 justify-center bg-heyhao-blue">
+                                            <img src="assets/images/icons/messages-2-round-white-fill.svg" class="flex size-6 shrink-0" alt="icon">
+                                            <p class="font-medium leading-5 text-white">Customer Service</p>
+                                        </div>
+                                    </div>
+                                    <span class="spacer flex h-[30px] shrink-0"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </body>
+</html>
